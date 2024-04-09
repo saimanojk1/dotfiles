@@ -11,6 +11,7 @@ setopt HIST_REDUCE_BLANKS
 setopt HIST_VERIFY
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:$HOME/.tmuxifier/bin"
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
