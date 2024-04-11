@@ -14,7 +14,10 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:$HOME/.tmuxifier/bin"
 
 export EDITOR="/opt/nvim-linux64/bin/nvim"
-
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
-fi
+export PATH="$PATH:$HOME/.tmuxifier/bin"
+eval "$(tmuxifier init -)"
+export EDITOR="/opt/nvim-linux64/bin/nvim"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+cd /local/repos
+cd $(find * -type d | fzf)
+tmuxifier s mfs-project
